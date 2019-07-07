@@ -14,7 +14,7 @@
         "rss": "https://github.com/webimpress/doctrine-zend-hydrator/releases.atom"
     },
     "require": {
-        "php": "^7.1",
+        "php": "^7.2",
         "ext-ctype": "*",
         "doctrine/common": "^2.8",
         "zendframework/zend-hydrator": "^3.0",
