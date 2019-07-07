@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Doctrine\Zend\Hydrator;
 
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Inflector\Inflector;
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -50,8 +51,6 @@ class DoctrineObject extends AbstractHydrator
      */
     public function __construct(ObjectManager $objectManager, $byValue = true)
     {
-        parent::__construct();
-
         $this->objectManager = $objectManager;
         $this->byValue = (bool) $byValue;
     }
@@ -98,7 +97,7 @@ class DoctrineObject extends AbstractHydrator
      * @param  object $object
      * @return array
      */
-    public function extract($object)
+    public function extract(object $object) : array
     {
         $this->prepare($object);
 
@@ -258,7 +257,7 @@ class DoctrineObject extends AbstractHydrator
      *
      * @inheritdoc
      */
-    public function hydrateValue($name, $value, $data = null)
+    public function hydrateValue($name, $value, array $data = null)
     {
         $value = parent::hydrateValue($name, $value, $data);
 
@@ -516,6 +515,9 @@ class DoctrineObject extends AbstractHydrator
 
         // We could directly call hydrate method from the strategy, but if people want to override
         // hydrateValue function, they can do it and do their own stuff
+        if ($values instanceof ArrayCollection) {
+            $values = $values->toArray();
+        }
         $this->hydrateValue($collectionName, $collection, $values);
     }
 

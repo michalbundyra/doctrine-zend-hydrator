@@ -38,7 +38,7 @@ class PropertyName implements FilterInterface
             : [$properties];
     }
 
-    public function filter($property)
+    public function filter(string $property) : bool
     {
         return in_array($property, $this->properties)
             ? ! $this->exclude

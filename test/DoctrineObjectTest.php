@@ -2654,12 +2654,12 @@ class DoctrineObjectTest extends TestCase
         $data = ['field' => ['complex', 'value']];
         $this->configureObjectManagerForSimpleEntity();
         $this->hydratorByValue->addStrategy('field', new class implements StrategyInterface {
-            public function extract($value) : array
+            public function extract($value, ?object $object = NULL)
             {
                 return explode(',', $value);
             }
 
-            public function hydrate($value) : string
+            public function hydrate($value, ?array $data)
             {
                 return implode(',', $value);
             }
@@ -2678,12 +2678,12 @@ class DoctrineObjectTest extends TestCase
         $data = ['field' => ['complex', 'value']];
         $this->configureObjectManagerForSimpleEntity();
         $this->hydratorByReference->addStrategy('field', new class implements StrategyInterface {
-            public function extract($value) : array
+            public function extract($value, ?object $object = NULL)
             {
                 return explode(',', $value);
             }
 
-            public function hydrate($value) : string
+            public function hydrate($value, ?array $data)
             {
                 return implode(',', $value);
             }
