@@ -8,7 +8,7 @@ use Zend\Hydrator\Strategy\StrategyInterface;
 
 class SimpleStrategy implements StrategyInterface
 {
-    public function extract($value, ?object $object = NULL)
+    public function extract($value, ?object $object = null)
     {
         return 'modified while extracting';
     }

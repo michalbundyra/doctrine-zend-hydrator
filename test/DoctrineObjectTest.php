@@ -2683,7 +2683,7 @@ class DoctrineObjectTest extends TestCase
                 return explode(',', $value);
             }
 
-           public function hydrate($value, ?array $data)
+            public function hydrate($value, ?array $data)
             {
                 return implode(',', $value);
             }
