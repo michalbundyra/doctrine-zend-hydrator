@@ -3,6 +3,10 @@
 [![Build Status](https://travis-ci.org/webimpress/doctrine-zend-hydrator.svg?branch=master)](https://travis-ci.org/webimpress/doctrine-zend-hydrator)
 [![Coverage Status](https://coveralls.io/repos/github/webimpress/doctrine-zend-hydrator/badge.svg?branch=master)](https://coveralls.io/github/webimpress/doctrine-zend-hydrator?branch=master)
 
+> ## ABANDONED
+>
+> This package is no longer maintained. Please use [doctrine/doctrine-zend-hydrator](https://github.com/doctrine/doctrine-zend-hydrator) instead.
+
 This library provides Doctrine Hydrators for Zend Framework application. 
 
 ## Installation
